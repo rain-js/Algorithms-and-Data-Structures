@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function bsearch(A, x) {
+			let l = 0,
+					r = A.length - 1,
+					g	// 猜测位置
+
+			while(l <= r) {
+				g = Math.floor((l + r) / 2)
+				if (A[g] === x) {
+					return g
+				} else if (A[g] < x) {
+					l = g + 1
+				} else {
+					r = g - 1
+				}
+			}
+			return -1
+		}
+
+		// test case
+		const A = [2, 22, 36, 39, 46, 49, 55, 68, 89, 92]
+		console.log(bsearch(A, 100))	// -1
+		console.log(bsearch(A, 50))		// -1
+		console.log(bsearch(A, 49))		// 5
+		console.log(bsearch(A, 92))		// 9
+	</script>
+</body>
+</html>
